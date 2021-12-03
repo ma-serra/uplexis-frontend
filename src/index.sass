@@ -9,9 +9,17 @@ input, select, textarea, span, button, ul, li
   font-family:inherit
 
 .header
-  background: #121F67
+  background-image: url("./assets/home.jpg")
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+  background-color: #121F67
   padding: 34px 60px
   border-bottom: 5px solid #ff5e00
+  width: 100vw
+
+.header--detail
+  background-image: url("./assets/detail.jpg")
 
 .header__title--row
   display: flex
@@ -29,11 +37,18 @@ input, select, textarea, span, button, ul, li
   margin: 0px 10px
   padding: 0 10px
 
+.header__title--detail
+  color: black
+  border-left: 1px solid black
+
 .header__description
   color: white
   font-size: 16px
   margin-bottom: 14px
   width: 50%
+
+.header__description--detail
+  color: black
 
 .header__price--row
   display: flex
@@ -44,10 +59,16 @@ input, select, textarea, span, button, ul, li
   font-size: 16px
   margin-right: 5px
 
+.header__currency--detail
+  color: black
+
 .header__price
   color: white
   font-size: 32px
   margin-right: 12px
+
+.header__price--detail
+  color: black
 
 .header__button
   color: white
@@ -55,7 +76,7 @@ input, select, textarea, span, button, ul, li
   background: linear-gradient(200deg, #ff5e00, #f19d6d) 
   border: none
   border-radius: 5px
-  padding: 5px 10px
+  padding: 8px 20px
 
 .header__button:hover
   cursor: pointer
@@ -101,7 +122,6 @@ input, select, textarea, span, button, ul, li
   justify-items: center
 
 .product
-  //border: 1px solid black
   width: 20%
   display: flex
   flex-direction: column
@@ -118,6 +138,7 @@ input, select, textarea, span, button, ul, li
 .product__title
   color: #1f1f1f
   margin: 12px
+  font-size: 20px
 
 .product__description
   color: gray
@@ -137,3 +158,82 @@ input, select, textarea, span, button, ul, li
   justify-content: space-between
   cursor: pointer
   text-decoration: none
+
+.return__button
+  display: inline-flex
+  align-items: center
+  color: #f18d2f
+  margin: 16px
+  margin-left: 90px
+  cursor: pointer
+
+.slider
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 0 10%
+  margin-top: 30px
+  img
+    width: 100%
+  p
+    margin: 10px 0
+    color: #f18d2f
+
+.left-arrow
+  position: absolute
+  top: 50%
+  left: 5%
+  font-size: 3rem
+  color: gray
+  z-index: 10
+  cursor: pointer
+  user-select: none
+
+.right-arrow
+  position: absolute
+  top: 50%
+  right: 5%
+  font-size: 3rem
+  color: gray
+  z-index: 10
+  cursor: pointer
+  user-select: none
+
+.slide 
+  display: flex
+  justify-content: center
+  opacity: 0
+  transition-duration: 1s ease
+
+.slide.active
+  opacity: 1
+  transition-duration: 1s
+  transform: scale(1.08)
+
+.slide__item
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 90%
+
+.detail__description
+  padding: 0 10%
+  margin-bottom: 36px
+  p
+    color: gray
+    padding: 20px 0
+
+.detail__price--row
+  display: flex
+  align-items: flex-end
+
+.detail__description__currency
+  color: black
+  font-size: 16px
+  margin-right: 5px
+
+.detail__description__price
+  color: black
+  font-size: 32px
+  margin-right: 12px

@@ -10,56 +10,56 @@ function Home() {
     {
       name: "Profissional",
       description: "",
-      price: "29,99",
+      price: "19,99",
       id: ["0","1"],
       icon: <FaBriefcase />
     },
     {
       name: "Reguladores",
       description: "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S. A., de capital aberto e limitadas (LTDA) de grande porte.",
-      price: "29,99",
+      price: "9,99",
       id: ["0","2"],
       icon: <FaLandmark />
     },
     {
       name: "Sócio Ambiental",
       description: "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S. A., de capital aberto e limitadas (LTDA) de grande porte.",
-      price: "29,99",
+      price: "39,99",
       id: ["0","3"],
       icon: <FaTree />
     },
     {
       name: "Jurídico",
       description: "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S. A., de capital aberto e limitadas (LTDA) de grande porte.",
-      price: "29,99",
+      price: "49,99",
       id: ["0","4"],
       icon: <FaGavel />
     },
     {
       name: "Listas Restritivas",
       description: "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S. A., de capital aberto e limitadas (LTDA) de grande porte.",
-      price: "29,99",
+      price: "59,99",
       id: ["0","5"],
       icon: <FaBan />
     },
     {
       name: "Mídia / Internet",
       description: "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S. A., de capital aberto e limitadas (LTDA) de grande porte.",
-      price: "29,99",
+      price: "69,99",
       id: ["0","6"],
       icon: <FaGlobeAmericas />
     },
     {
       name: "Bens e Imóveis",
       description: "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S. A., de capital aberto e limitadas (LTDA) de grande porte.",
-      price: "29,99",
+      price: "79,99",
       id: ["0","7"],
       icon: <FaGem />
     },
     {
       name: "Cadastro",
       description: "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S. A., de capital aberto e limitadas (LTDA) de grande porte.",
-      price: "29,99",
+      price: "89,99",
       id: ["0","8"],
       icon: <FaMale />
     },
@@ -102,6 +102,30 @@ function Home() {
     let filteredProducts = products.filter(a => a.id.includes(id));
      
     setProductsList(filteredProducts);
+  }
+
+  function sortList(event) {    
+    let { value } = event.target;
+
+    if(value === "launch") {     
+      let sortedByLaunch = productsList.sort(
+        function (a, b) {
+          return parseFloat(a.id[1]) - parseFloat(b.id[1]);
+        }
+      );
+  
+      setProductsList([...sortedByLaunch]);
+    }
+
+    if(value === "price") {
+      let sortedByPrice = productsList.sort(
+        function (a, b) {
+          return parseFloat(a.price) - parseFloat(b.price);
+        }
+      );
+  
+      setProductsList([...sortedByPrice]);    
+    }    
   }
 
   return (
@@ -196,7 +220,7 @@ function Home() {
       </section>
       <form className="form">
         <label className="form__label" htmlFor="order">ORDENAR:</label>
-        <select name="order" id="order">
+        <select name="order" id="order" onChange={sortList}>
           <option value="launch">Lançamento</option>
           <option value="price">Preço</option>
         </select>

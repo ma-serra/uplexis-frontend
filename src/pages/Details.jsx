@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
-import { FaBriefcase, FaLandmark, FaTree, FaGavel, FaBan, FaGlobeAmericas, FaGem, FaMale, FaPiggyBank } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaBriefcase, FaLandmark, FaTree, FaGavel, FaBan, FaGlobeAmericas, FaGem, FaMale, FaPiggyBank, FaAngleLeft } from 'react-icons/fa';
 
-import logo from '../assets/upminer.svg';
+import logo from '../assets/upminer--black.svg';
+import Slider from '../components/Slider';
 
 function Details() {
     const products = [
@@ -104,6 +105,8 @@ function Details() {
         },
       ];
 
+    const navigate = useNavigate();
+
     const currentPathName = window.location.href;
     const splitPath = currentPathName.split('/', 4);
     const id = splitPath[3];
@@ -113,20 +116,32 @@ function Details() {
 
     
     return(
-      <header className="header">
-        <div className="header__title--row">
-          <img className="header__logo" src={logo} height="40px" alt="upMiner"/>
-          <h1 className="header__title">{productData.name}</h1>
-        </div>
-        <p className="header__description">{productData.description}</p>
-        <div className="header__price--row">
-          <span className="header__currency">R$</span>
-          <span className="header__price">{productData.price}</span>
-          <Link to={"/" + id}>
-            <button className="header__button">Saiba Mais</button>
-          </Link>
-        </div>
-      </header>
+      <>
+        <header className="header header--detail">
+          <div className="header__title--row">
+            <img className="header__logo" src={logo} height="40px" alt="upMiner"/>
+            <h1 className="header__title header__title--detail">{productData.name}</h1>
+          </div>
+          <p className="header__description header__description--detail">{productData.description}</p>
+          <div className="header__price--row">
+            <span className="header__currency header__currency--detail">R$</span>
+            <span className="header__price header__price--detail">{productData.price}</span>
+            <Link to={"/" + id}>
+              <button className="header__button">Saiba Mais</button>
+            </Link>
+          </div>
+        </header>
+        <h2 className="return__button" onClick={() => navigate(-1)}><FaAngleLeft />Histórico Empresarial</h2>
+        <Slider />
+        <section className="detail__description">
+          <p className="detail__description">{productData.description}</p>
+          <div className="detail__price--row">
+            <span className="detail__description__currency">R$</span>
+            <span className="detail__description__price">{productData.price}</span>
+            <button className="header__button">Habilitar</button>
+          </div>
+        </section>
+      </>
     );
 }
 
