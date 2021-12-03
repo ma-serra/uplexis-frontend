@@ -16,7 +16,9 @@ input, select, textarea, span, button, ul, li
   background-color: #121F67
   padding: 34px 60px
   border-bottom: 5px solid #ff5e00
-  width: 100vw
+  @media screen and (max-width: 480px)
+    padding: 20px
+    
 
 .header--detail
   background-image: url("./assets/detail.jpg")
@@ -36,6 +38,10 @@ input, select, textarea, span, button, ul, li
   border-left: 1px solid white
   margin: 0px 10px
   padding: 0 10px
+  @media screen and (max-width: 480px)
+    margin: 0
+    margin-left: 10px
+    font-size: 25px
 
 .header__title--detail
   color: black
@@ -46,6 +52,8 @@ input, select, textarea, span, button, ul, li
   font-size: 16px
   margin-bottom: 14px
   width: 50%
+  @media screen and (max-width: 480px)
+    width: 100%
 
 .header__description--detail
   color: black
@@ -86,6 +94,8 @@ input, select, textarea, span, button, ul, li
   list-style-type: none
   justify-content: space-between
   padding: 12px
+  @media screen and (max-width: 480px)
+    overflow: auto
 
 .menu__category
   display: flex
@@ -120,6 +130,8 @@ input, select, textarea, span, button, ul, li
   column-gap: 30px
   row-gap: 30px
   justify-items: center
+  @media screen and (max-width: 480px)
+    grid-template-columns: 1fr
 
 .product
   width: 20%
@@ -174,11 +186,18 @@ input, select, textarea, span, button, ul, li
   align-items: center
   padding: 0 10%
   margin-top: 30px
+  @media screen and (max-width: 480px)
+    flex-direction: column
   img
     width: 100%
+    @media screen and (max-width: 480px)
+      width: 80%
+      margin-top: 20px
   p
     margin: 10px 0
     color: #f18d2f
+    @media screen and (max-width: 480px)
+      font-size: 10px
 
 .left-arrow
   position: absolute
@@ -189,6 +208,8 @@ input, select, textarea, span, button, ul, li
   z-index: 10
   cursor: pointer
   user-select: none
+  @media screen and (max-width: 480px)
+    font-size: 2rem
 
 .right-arrow
   position: absolute
@@ -199,6 +220,8 @@ input, select, textarea, span, button, ul, li
   z-index: 10
   cursor: pointer
   user-select: none
+  @media screen and (max-width: 480px)
+    font-size: 2rem
 
 .slide 
   display: flex
